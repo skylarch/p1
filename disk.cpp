@@ -55,7 +55,7 @@ void requester(void *a){
     while(fin >> word){
         int track = stoi(word);
         queue.lock();
-        while(Q.size() >= MAX_DISK_QUEUE){
+        while((int)Q.size() >= MAX_DISK_QUEUE){
             fullQ.wait(queue);
         }
         
@@ -72,7 +72,7 @@ void servicer(void *a){
     int head = 0;
     
     queue.lock();
-    while(Q.size() < min(MAX_DISK_QUEUE, ACT_REQ)){
+    while((int)Q.size() < min(MAX_DISK_QUEUE, ACT_REQ)){
         notFullQ.wait(queue);
     }
     int short_index = 0;
