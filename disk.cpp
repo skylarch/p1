@@ -13,6 +13,7 @@
 #include "disk.h"
 #include "mutex.h"
 
+using std::pair;
 using std::cout;
 using std::cin;
 using std::vector;
@@ -22,7 +23,7 @@ using std::min;
 
 int MAX_DISK_QUEUE = 0;
 int ACT_REQ = 0;
-vector<int, int> Q;
+vector< pair<int, int> > Q;
 char** INPUT = nullptr;
 int CUR_ID = 0;
 
